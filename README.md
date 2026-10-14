@@ -11,7 +11,7 @@ The complete file is `lotraAI-image2slide-v1.31.0-bundle.zip` (2,414,649,382 byt
 
 ## Download and assemble
 
-Open the [v1.31.0 bundle release](https://github.com/jiang-zl/lotraAI-image2slide-skill-runtime/releases/tag/v1.31.0). Its three `.part001` / `.part002` / `.part003` assets are ordered byte segments of the same complete ZIP. Save the release's [download helper](https://github.com/jiang-zl/lotraAI-image2slide-skill-runtime/releases/download/v1.31.0/fetch_bundle.py), then run:
+Open the [v1.31.0 bundle release](https://github.com/jiang-zl/lotraAI-image2slide-skill-runtime/releases/tag/v1.31.0). Its 18 transport assets (`.part001` through `.part018`, up to 128 MiB each) are ordered byte segments of the same complete ZIP. Save the release's [download helper](https://github.com/jiang-zl/lotraAI-image2slide-skill-runtime/releases/download/v1.31.0/fetch_bundle.py), then run:
 
 ~~~sh
 python3 fetch_bundle.py --output-dir ./downloads
@@ -46,3 +46,5 @@ Codex uses the bundled installer for the current platform, prepares the project-
 After installation, attach a reference image in the same project and ask Codex to use `$lotra-image2slide-skill`. Manual installation commands remain in the main `lotraAI` repository's installation guide.
 
 [Bundle contents](docs/bundle-contents.md) · [v1.31.0 manifest](releases/v1.31.0.json) · [Provenance](NOTICE.md) · [Publication checklist](docs/publication-checklist.md)
+
+Maintainers: [local upload and publication script](docs/publishing.md).

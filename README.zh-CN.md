@@ -11,7 +11,7 @@
 
 ## 下载并合并
 
-打开 [v1.31.0 完整包 Release](https://github.com/jiang-zl/lotraAI-image2slide-skill-runtime/releases/tag/v1.31.0)。三个 `.part001` / `.part002` / `.part003` 附件是同一个完整 ZIP 按顺序切出的字节分块。保存 Release 中的[下载合并程序](https://github.com/jiang-zl/lotraAI-image2slide-skill-runtime/releases/download/v1.31.0/fetch_bundle.py)，执行：
+打开 [v1.31.0 完整包 Release](https://github.com/jiang-zl/lotraAI-image2slide-skill-runtime/releases/tag/v1.31.0)。18 个附件（`.part001` 至 `.part018`，每块不超过 128 MiB）是同一个完整 ZIP 按顺序切出的字节分块。保存 Release 中的[下载合并程序](https://github.com/jiang-zl/lotraAI-image2slide-skill-runtime/releases/download/v1.31.0/fetch_bundle.py)，执行：
 
 ~~~sh
 python3 fetch_bundle.py --output-dir ./downloads
@@ -45,3 +45,5 @@ Codex 按当前平台调用包内安装器，先准备项目内运行时，再�
 安装完成后，在同一项目附上参考图，并要求使用 `$lotra-image2slide-skill` 开始重建。手动安装命令见主项目 `lotraAI` 的安装文档。
 
 [完整包组成](docs/bundle-contents.md) · [v1.31.0 版本清单](releases/v1.31.0.json) · [来源与许可](NOTICE.md) · [发布准备](docs/publication-checklist.md)
+
+维护者：[本地上传与发布脚本](docs/publishing.md)。
