@@ -12,6 +12,7 @@ import re
 import shutil
 import subprocess
 import sys
+import tempfile
 import threading
 import time
 import urllib.error
@@ -281,6 +282,12 @@ def verify_remote_assets(client, base, release, rows):
 
 @contextmanager
 def publication_lock(path):
+    if os.name == 'nt':
+        # WSL's UNC provider does not support Windows byte-range file locks.
+        directory = Path(tempfile.gettempdir())/'lotraAI-release-publisher-locks'
+        directory.mkdir(exist_ok=True)
+        key = hashlib.sha256(str(path.resolve()).casefold().encode()).hexdigest()
+        path = directory/(key+'.lock')
     with path.open('a+b') as handle:
         handle.seek(0)
         if os.name == 'nt':
