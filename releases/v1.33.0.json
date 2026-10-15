@@ -1,0 +1,89 @@
+{
+  "bundle_manifest_sha256": "56ea8082336d4afbbe734724ca82b8f2625e0c38c4f9f67d734d87e12b47aade",
+  "resources": {
+    "engines/linux-x86_64-cp312.tar.gz": {
+      "bytes": 34304557,
+      "executable": "python/bin/python3.12",
+      "executable_sha256": "708fefcd7df61b1327cb7b9740fafd42cb2f6cd1d387378892d4a28b7479fb78",
+      "inventory": "engines/linux-x86_64-cp312.files.json",
+      "path": "engines/linux-x86_64-cp312.tar.gz",
+      "sha256": "ffa8f85f1b56e88b687f08d743d817015524b86a9365fd921243132b80f1a36d",
+      "source": {
+        "bytes": 34304557,
+        "licence_metadata_source": {
+          "bytes": 98368568,
+          "digest": "sha256:36a23ba5776ede9db3dfbb1b1f84c74b18939331c75e1e70760f12ad61aa96d5",
+          "name": "cpython-3.12.15+20261009-x86_64-unknown-linux-gnu-pgo+lto-full.tar.zst",
+          "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20261009/cpython-3.12.15%2B20261009-x86_64-unknown-linux-gnu-pgo%2Blto-full.tar.zst"
+        },
+        "release": "20261009",
+        "sha256": "ffa8f85f1b56e88b687f08d743d817015524b86a9365fd921243132b80f1a36d",
+        "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20261009/cpython-3.12.15%2B20261009-x86_64-unknown-linux-gnu-install_only_stripped.tar.gz"
+      },
+      "uncompressed_bytes": 194401947,
+      "url": "https://github.com/jiang-zl/lotraAI-image2slide-skill-runtime/releases/download/v1.33.0/linux-x86_64-cp312.tar.gz",
+      "version": "3.12.15"
+    },
+    "engines/windows-amd64-cp312.zip": {
+      "bytes": 23135647,
+      "executable": "python/python.exe",
+      "executable_sha256": "86c4690be87a6bb6be1affe24b3c1b67ceedc86b477d6cde9f812fafd0f6d3b9",
+      "inventory": "engines/windows-amd64-cp312.files.json",
+      "path": "engines/windows-amd64-cp312.zip",
+      "sha256": "e0f12f47ffb709e2401825fe9dc6a386ec52962ffc96bdb0af06bfc93b471f42",
+      "source": {
+        "bytes": 22011208,
+        "licence_metadata_source": {
+          "bytes": 43744049,
+          "digest": "sha256:9c2898a218c233d3de889d6aede2fdd859c07a51bfbb360f19bb660536f74672",
+          "name": "cpython-3.12.15+20261009-x86_64-pc-windows-msvc-pgo-full.tar.zst",
+          "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20261009/cpython-3.12.15%2B20261009-x86_64-pc-windows-msvc-pgo-full.tar.zst"
+        },
+        "release": "20261009",
+        "sha256": "11ed9f8a6ac64fb1b5a55e40e305a6744a3f77a70863c8f8197a6e4349abc64a",
+        "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20261009/cpython-3.12.15%2B20261009-x86_64-pc-windows-msvc-install_only_stripped.tar.gz"
+      },
+      "uncompressed_bytes": 63231381,
+      "url": "https://github.com/jiang-zl/lotraAI-image2slide-skill-runtime/releases/download/v1.33.0/windows-amd64-cp312.zip",
+      "version": "3.12.15"
+    },
+    "payload/runtime-1.14.0-linux-x86_64-cp312.zip": {
+      "bytes": 414920173,
+      "manifest_sha256": "a1672a4777b96d7ae72db7008420875330293eec7dc5c0757a3af40054d4738e",
+      "path": "payload/runtime-1.14.0-linux-x86_64-cp312.zip",
+      "sha256": "534c967f22f96d40b44ad4be17f4212f2fb979505afe3e2df5b5aff3da11cf4d",
+      "url": "https://github.com/jiang-zl/lotraAI-image2slide-skill-runtime/releases/download/v1.33.0/runtime-1.14.0-linux-x86_64-cp312.zip",
+      "version": "1.14.0"
+    },
+    "payload/runtime-1.14.0-windows-amd64-cp312.zip": {
+      "bytes": 390593996,
+      "manifest_sha256": "4e39de249c0be25ec22673dd7c1c6beb9abc9d651270c9aba40bef7ba685fde2",
+      "path": "payload/runtime-1.14.0-windows-amd64-cp312.zip",
+      "sha256": "dd608f049e639603925f197bf805d887c94259ef21d5163dc3d9d7df9315f452",
+      "url": "https://github.com/jiang-zl/lotraAI-image2slide-skill-runtime/releases/download/v1.33.0/runtime-1.14.0-windows-amd64-cp312.zip",
+      "version": "1.14.0"
+    },
+    "renderers/LibreOffice-26.2.6.3-windows-x86_64.zip": {
+      "bytes": 571977296,
+      "executable": "program/soffice.com",
+      "format": "zip",
+      "path": "renderers/LibreOffice-26.2.6.3-windows-x86_64.zip",
+      "sha256": "86d4be1981869829fc174e2f29448e1716f43a44f48d2d676d113a145f104762",
+      "uno_python": "program/python.exe",
+      "url": "https://github.com/jiang-zl/lotraAI-image2slide-skill-runtime/releases/download/v1.33.0/LibreOffice-26.2.6.3-windows-x86_64.zip",
+      "version": "26.2.6.3"
+    },
+    "renderers/LibreOffice_26.2.6_Linux_x86-64_deb.tar.gz": {
+      "bytes": 217285735,
+      "executable": "opt/libreoffice26.2/program/soffice",
+      "format": "official-deb-tar",
+      "path": "renderers/LibreOffice_26.2.6_Linux_x86-64_deb.tar.gz",
+      "sha256": "fd0e8f8f2408dd2e5b90286e60f3f97cf566ba441cd48cfc5bcc68067303e0bc",
+      "uno_python": "opt/libreoffice26.2/program/python",
+      "url": "https://github.com/jiang-zl/lotraAI-image2slide-skill-runtime/releases/download/v1.33.0/LibreOffice_26.2.6_Linux_x86-64_deb.tar.gz",
+      "version": "26.2.6.3"
+    }
+  },
+  "schema": "lotra-update-1",
+  "version": "1.33.0"
+}
