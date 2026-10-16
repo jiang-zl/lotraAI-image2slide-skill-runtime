@@ -1,10 +1,12 @@
-# Publication and version bindings
+# Publication bindings
 
-- Product repository: [lotraAI-image2slide-skill](https://github.com/jiang-zl/lotraAI-image2slide-skill).
-- Distribution repository: [lotraAI-image2slide-skill-runtime](https://github.com/jiang-zl/lotraAI-image2slide-skill-runtime).
-- Version branch: `1.31.0`. Release/default branch: `release`. Release tag: `v1.31.0`.
-- Complete-bundle release: [v1.31.0](https://github.com/jiang-zl/lotraAI-image2slide-skill-runtime/releases/tag/v1.31.0).
-- The manifest declares ordered part URLs, exact sizes, part hashes, and the complete ZIP hash.
-- `tools/fetch_bundle.py` reconstructs and verifies the single complete ZIP.
-- All original payload bytes remain unchanged; local private artifacts are ignored by Git.
-- Functional reconstruction, Office rendering, native editing, and whole-result validation remain `NOT_RUN_PER_USER_REQUEST` for this release.
+- Product version, version branch and sole tag for this version: 1.33.0 / v1.33.0.
+- Installation branch: release; activation follows verified resource upload.
+- Product source and examples: lotraAI-image2slide-skill.
+- Platform resources, installation channel and complete bundle: lotraAI-image2slide-skill-runtime.
+- Complete ZIP: 18 ordered pieces of at most 128 MiB, exact hashes in the version manifest.
+- WSL publication: scripts/publish-v1.33.0.sh --publish; [details](publishing-v133.md).
+- Public personal catalog is empty; private user/test data and credentials are excluded.
+- Windows x64 and WSL/Linux x64 installation checks passed before publication.
+- Reconstruction, Office editing, token/performance effects are not qualified by installation checks.
+- Obsolete same-version auxiliary tags are removed after all resources are present and the current channel is activated; previous product versions remain.
