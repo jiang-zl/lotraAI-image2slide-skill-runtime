@@ -223,6 +223,39 @@ def refs(client,plan,*,advance=False):
     return facts
 
 
+def public_gate(client,groups):
+    """Read public metadata without credentials before retiring auxiliary releases."""
+    def read(url,limit=2*1024*1024):
+        last=None
+        for attempt in range(3):
+            try:
+                request=urllib.request.Request(url,headers={'User-Agent':'lotraAI-public-publication-check/1.33.0'})
+                with client.opener.open(request,timeout=45) as response:data=response.read(limit+1)
+                if len(data)>limit:raise ValueError('Public metadata exceeds its prepared limit')
+                return data
+            except OSError as error:
+                last=error
+                if attempt<2:time.sleep(2**attempt)
+        raise RuntimeError('Public resource is not reachable yet: '+url) from last
+    for group in groups:
+        repo=group['repository']
+        rel=json.loads(read('https://api.github.com/repos/'+repo+'/releases/tags/v1.33.0'))
+        actual={a['name']:a for a in rel['assets']}
+        if rel['draft'] or rel['tag_name']!='v1.33.0' or any(r['name'] not in actual or not matching(actual[r['name']],r) for r in group['assets']):
+            raise ValueError('Public release metadata differs: '+repo)
+        if repo.endswith('-runtime'):
+            channel=json.loads(read('https://raw.githubusercontent.com/'+repo+'/release/releases/current.json'))
+            if channel.get('schema')!='lotra-install-channel-1' or channel.get('version')!='1.33.0':raise ValueError('Public installation channel is not current')
+            expected={r['name']:r for r in group['assets']}
+            for field,name in [('entry','install_lotra.py'),('catalog','release.json'),('bundle','v1.33.0-bundle.json')]:
+                row=expected[name];record=channel[field]
+                url='https://github.com/'+repo+'/releases/download/v1.33.0/'+name
+                if record['url']!=url or record['bytes']!=row['bytes'] or record['sha256']!=row['sha256']:raise ValueError('Public channel resource differs: '+field)
+                body=read(url,row['bytes'])
+                if len(body)!=row['bytes'] or hashlib.sha256(body).hexdigest()!=row['sha256']:raise ValueError('Public download identity differs: '+name)
+        log({'phase':'PUBLIC_RELEASE_CONFIRMED','repository':repo,'assets':len(group['assets'])})
+
+
 def cleanup(client,plan):
     """Only exact obsolete same-version identities declared before publication."""
     for item in plan.get('cleanup',[]):
@@ -332,6 +365,7 @@ def publish(args):
             client.api('PATCH','/repos/'+group['repository']+'/releases/'+str(rel['id']),
                 {'draft':False,'prerelease':group.get('prerelease',False),'name':group['name'],'body':body,'make_latest':'false' if group.get('prerelease') else 'true'})
         facts=refs(client,plan,advance=not args.skill_only)
+        public_gate(client,groups)
         if not args.skill_only:cleanup(client,plan)
     else:facts=refs(client,plan)
     result={'status':('SKILL_PUBLISHED_RUNTIME_ACTIVATION_PENDING' if args.skill_only else 'PUBLISHED') if args.publish else 'ASSETS_UPLOADED_CURRENT_BRANCHES_UNCHANGED','version':'1.33.0',

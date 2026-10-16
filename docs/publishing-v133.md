@@ -25,3 +25,8 @@ publisher through the Windows Python launcher and cURL. This reuses the host
 network path while preserving code, plan, progress and upload inputs in their
 prepared locations. Native Linux uses python3 and cURL. No system proxy is
 changed. Run a single publisher instance at a time.
+
+After publishing, the uploader checks anonymous release metadata and downloads
+the public installation entry, catalog and complete-bundle manifest to verify
+their identities. Auxiliary releases/tags are retired only after that public
+check succeeds. This does not run product reconstruction.
