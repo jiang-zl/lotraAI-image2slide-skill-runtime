@@ -37,7 +37,7 @@ def request(url,headers=None,limit=2*1024*1024):
     for attempt in range(3):
         try:
             transport=urllib.request.build_opener(urllib.request.ProxyHandler({})) if attempt and ('10061' in str(last) or 'refused' in str(last).lower()) else urllib.request.build_opener()
-            with transport.open(urllib.request.Request(url,headers={'User-Agent':'lotraAI-install-entry/1.33.0',**(headers or {})}),timeout=60) as response:
+            with transport.open(urllib.request.Request(url,headers={'User-Agent':'lotraAI-install-entry/1.34.0',**(headers or {})}),timeout=60) as response:
                 data=response.read(limit+1)
                 if len(data)>limit:raise ValueError('Installer metadata exceeds byte limit')
                 return data,response.headers.get('ETag')

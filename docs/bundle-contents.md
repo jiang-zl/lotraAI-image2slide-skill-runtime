@@ -2,7 +2,7 @@
 
 | Resource | Version / scope |
 | --- | --- |
-| Product and main skill | lotraAI Image2Slide 1.33.0 |
+| Product and main skill | lotraAI Image2Slide 1.34.0 |
 | Offline companion | 1.14.0; pinned dependencies and OCR resources |
 | Python | 3.12.15; Windows AMD64, Linux x86-64/aarch64, macOS x86-64/arm64 |
 | Math | Windows/Linux x86-64 bundled; macOS 13+ pinned official DMG download |
@@ -18,7 +18,7 @@ stops before registering a complete skill on an unsupported complete route.
 Online installation selects only the current platform. Managed differential
 updates add, replace and delete owned files, retaining unchanged bytes and
 private knowledge, fonts, tasks and sources. The selected runtime binary version
-is independent of the product version. See releases/v1.33.0.json and
-releases/v1.33.0-bundle.json for exact current resources, hashes and download URLs.
+is independent of the product version. See releases/v1.34.0.json and
+releases/v1.34.0-bundle.json for exact current resources, hashes and download URLs.
 Installation checks and reconstruction acceptance are described separately in
 [release status](release-status.md).
