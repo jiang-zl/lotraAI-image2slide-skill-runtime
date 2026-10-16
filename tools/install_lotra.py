@@ -62,28 +62,47 @@ def fetch(record,cache):
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--project',type=Path,required=True)
+    mode=parser.add_mutually_exclusive_group()
+    mode.add_argument('--download-bundle',type=Path,metavar='OUTPUT_DIR')
+    mode.add_argument('--bundle-root',type=Path,help='Install a supplied extracted bundle without reading the online channel')
+    parser.add_argument('--entry-hops',type=int,default=0,help=argparse.SUPPRESS)
     args=parser.parse_args();project=args.project.resolve()
     if not project.is_dir() or project in (Path.home().resolve(),Path(project.anchor)):raise ValueError('Choose an existing project directory')
     if sys.version_info[:2]!=(3,12):raise ValueError('Use the runtime repository OS bootstrap for its project-local Python 3.12')
     state=path(project,'.lotraAI-build/install-entry');state.mkdir(parents=True,exist_ok=True)
+    if args.bundle_root:
+        root=args.bundle_root.resolve()
+        catalog=root/'Differential-manifest.json'
+        if not catalog.is_file():raise ValueError('This local bundle has no differential catalog; use its bundled installer')
+        return run_backend([sys.executable,'-I','-X','utf8','-B',str(root/'installer/differential.py'),
+                            '--project',str(project),'--catalog',str(catalog)],state)
     channel_file=path(state,'Channel.json');etag_file=path(state,'ETag.txt')
     headers={'If-None-Match':etag_file.read_text()} if channel_file.exists() and etag_file.exists() else {}
     data,etag=request(CHANNEL,headers)
     if data is not None:
         write(channel_file,data)
         if etag:write(etag_file,etag.encode())
+        elif etag_file.exists():etag_file.unlink()
     channel=json.loads(channel_file.read_bytes())
     if channel.get('schema')!='lotra-install-channel-1':raise ValueError('Unsupported installation channel')
     cache=path(project,'.lotraAI-build/downloads/sha256');cache.mkdir(parents=True,exist_ok=True)
     entry=channel['entry']
     if digest(Path(__file__).resolve())!=entry['sha256']:
+        if args.entry_hops>=2:raise ValueError('Installation channel changed repeatedly; retry the official entry later')
         updated=fetch(entry,cache)
-        return subprocess.run([sys.executable,'-I','-X','utf8','-B',str(updated),'--project',str(project)]).returncode
+        command=[sys.executable,'-I','-X','utf8','-B',str(updated),'--project',str(project),'--entry-hops',str(args.entry_hops+1)]
+        if args.download_bundle:command+=['--download-bundle',str(args.download_bundle)]
+        return subprocess.run(command).returncode
     write(path(state,'Launcher.json'),(json.dumps({'command_prefix':[sys.executable,'-I','-X','utf8','-B',str(Path(__file__).resolve()),'--project',str(project)],
           'entry_sha256':entry['sha256'],'python_sha256':digest(Path(sys.executable).resolve())},sort_keys=True,indent=2)+'\n').encode())
     catalog_file=fetch(channel['catalog'],cache);catalog=json.loads(catalog_file.read_bytes())
     root=path(project,'.lotraAI-build/installers/'+catalog['release_id']);root.mkdir(parents=True,exist_ok=True)
-    for name,record in catalog['installer'].items():
+    modules=catalog['installer']
+    if args.download_bundle:
+        selected={'installer/bundle_transport.py','installer/download.py','installer/install.py'}
+        modules={name:record for name,record in modules.items() if name in selected}
+        if set(modules)!=selected:raise ValueError('Bundle downloader is not supplied by the current catalog')
+    for name,record in modules.items():
         destination=path(root,name)
         if destination.is_file():
             if digest(destination)!=record['sha256']:raise ValueError('Preserve changed installed coordinator')
@@ -101,11 +120,23 @@ def main():
         destination.parent.mkdir(parents=True,exist_ok=True)
         try:os.link(source,destination)
         except OSError:write(destination,source.read_bytes())
-    log=path(state,'Install.log')
+    if args.download_bundle:
+        if 'bundle' not in channel:raise ValueError('Complete bundle is not published by this channel')
+        manifest_file=fetch(channel['bundle'],cache)
+        return run_backend([sys.executable,'-I','-X','utf8','-B',str(root/'installer/bundle_transport.py'),
+                            '--project',str(project),'--manifest',str(manifest_file),
+                            '--output-dir',str(args.download_bundle)],state,'Bundle-download.log')
+    return run_backend([sys.executable,'-I','-X','utf8','-B',str(root/'installer/differential.py'),
+                        '--project',str(project),'--catalog',str(catalog_file)],state)
+
+
+def run_backend(command,state,log_name='Install.log'):
+    log=path(state,log_name)
     with log.open('wb') as stream:
-        completed=subprocess.run([sys.executable,'-I','-X','utf8','-B',str(root/'installer/differential.py'),
-                                  '--project',str(project),'--catalog',str(catalog_file)],stdout=stream,stderr=subprocess.STDOUT,timeout=2400)
-    lines=log.read_text(encoding='utf-8',errors='replace').splitlines()
+        completed=subprocess.run(command,stdout=stream,stderr=subprocess.STDOUT,timeout=7200)
+    with log.open('rb') as stream:
+        stream.seek(max(0,log.stat().st_size-65536))
+        lines=stream.read().decode(encoding='utf-8',errors='replace').splitlines()
     result=None
     for line in reversed(lines):
         try:
