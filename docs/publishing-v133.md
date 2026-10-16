@@ -19,3 +19,9 @@ piece needs temporary disk space. Rerun the same command after interruption.
 After every declared resource matches, it publishes release notes, activates
 the release branches and removes the exact obsolete v1.33.0-install-r* releases
 and tags captured by the prepared plan. Other versions are preserved.
+
+On WSL, when py.exe is already available, the Bash entry runs the same WSL-hosted
+publisher through the Windows Python launcher and cURL. This reuses the host
+network path while preserving code, plan, progress and upload inputs in their
+prepared locations. Native Linux uses python3 and cURL. No system proxy is
+changed. Run a single publisher instance at a time.
