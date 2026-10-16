@@ -1,9 +1,21 @@
-# lotraAI runtime resources
+# lotraAI runtime and automatic installation
 
 **English** | [简体中文](README.zh-CN.md)
 
-Runtime resources for lotraAI Image2Slide **v1.33.0**: core runtime **v1.14.0**, Python, OCR resources and LibreOffice Math.
+## Quick start
 
-Use the [skill Quick start](https://github.com/jiang-zl/lotraAI-image2slide-skill/blob/release/README.md) to install or update in one step. The installer selects the platform resources and reuses a compatible project runtime. Complete packages are available for Windows AMD64 and Linux x86_64.
+> Install or update lotraAI Image2Slide in this project from https://github.com/jiang-zl/lotraAI-image2slide-skill-runtime.
 
-Historical releases remain available. No new runtime tests or performance/effect measurements were run for v1.33.0.
+Codex performs the download and installation. Use the same sentence for first installation and file-differential updates.
+
+## Agent entry
+
+If `.lotraAI-build/install-entry/Launcher.json` exists, use its recorded installation command. Otherwise download `tools/install_lotra.ps1` (Windows) or `tools/install_lotra.sh` (macOS/Linux) from this repository's `release` branch into the project's private directory, then run it with the project path. The program reads `releases/current.json`, selects resources and returns a short receipt. Do not recreate the downloader or print manifests and full logs.
+
+The runtime repository is the installation entry. Updates add new files, replace changed files and remove retired managed files. Unchanged active files are not rewritten or downloaded. Hash-addressed resources and compatible environments are reused. Personal knowledge, fonts, tasks, images and PPT files are preserved. Detailed logs stay in the project; the agent returns a short result.
+
+Python/OCR resources cover Windows AMD64, Linux x86_64/aarch64 and macOS Apple Silicon/Intel. Math packages are indexed for Windows AMD64, Linux x86_64 and both macOS architectures. Linux ARM64 has core resources but no supplied Math package; the complete installer reports this limitation. macOS requires 13 or later.
+
+The current installation revision is **1.33.0 install-r2**. Original releases and offline archives remain available. The current entry uses a file manifest rather than downloading the old full bundle for each update.
+
+See [the workflow](https://github.com/jiang-zl/lotraAI-image2slide-skill/blob/release/skills/lotra-image2slide-skill/references/workflow-v133.md). This revision was implemented and statically reviewed without tests, installation runs, reconstruction, rendering or performance/effect measurements.
