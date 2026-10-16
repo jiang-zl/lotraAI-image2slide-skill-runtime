@@ -209,7 +209,7 @@ def main():
     curl=shutil.which('curl.exe') or shutil.which('curl')
     if not curl:raise ValueError('cURL is required for bounded asset uploads')
     groups=plan['groups']
-    if any(group['repository'] not in ALLOWED or not re.fullmatch(r'v1\.33\.0-install-r[34]',group['tag']) for group in groups):raise ValueError('Unexpected publication target')
+    if any(group['repository'] not in ALLOWED or not re.fullmatch(r'v1\.33\.0-install-r[345]',group['tag']) for group in groups):raise ValueError('Unexpected publication target')
     if {row['repository'] for row in plan['repositories']}!=ALLOWED:raise ValueError('Unexpected branch publication scope')
     for group in groups:
         names=set()
