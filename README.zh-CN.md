@@ -1,37 +1,84 @@
-# lotraAI runtime 与自动安装
+# lotraAI 完整包与运行资源
 
-[English](README.md) | **简体中文**
+[English](README.md) · [简体中文](README.zh-CN.md)
 
-## Quick start
+本仓库分发 lotraAI 完整 bundle 与平台运行资源，维护自动安装、差分更新和下载清单。产品介绍、案例和 skill 源码位于[主项目](https://github.com/jiang-zl/lotraAI-image2slide-skill/blob/release/README.zh-CN.md)。
 
-> 请从 https://github.com/jiang-zl/lotraAI-image2slide-skill-runtime 在当前项目安装或更新 lotraAI Image2Slide。
+## 当前版本：v1.33.0
 
-Codex 自动下载并运行正式程序，首次安装和文件差分更新使用同一句话。
+完整文件为 `lotraAI-image2slide-v1.33.0-bundle.zip`，包含 skill 与当前随包运行资源。大小、SHA-256 和分块顺序以[完整包清单](releases/v1.33.0-bundle.json)为准。
 
-## Agent 入口
+运行资源覆盖 Windows x64、Linux x64、macOS Apple Silicon 和 Intel。macOS 要求 13 或更高版本，Math DMG 首次单独联网获取，未包含在完整 bundle 中；Linux ARM64 有核心资源，尚缺完整 Math 包。详见[安装说明](docs/installation.zh-CN.md)。
 
-若已有 `.lotraAI-build/install-entry/Launcher.json`，使用其中记录的安装命令。否则，从本仓库 `release` 分支取得 Windows 的 `tools/install_lotra.ps1` 或 macOS/Linux 的 `tools/install_lotra.sh`，传入项目路径运行。它自动选择平台、按需准备私有 Python、读取 `releases/current.json` 并调用共同安装核心。不要临时重写下载脚本，也不展开完整清单和日志。
+## 快速开始
 
-## 完整分块包
+### 1. 让 Codex 安装或更新
 
-完整 bundle 保留为每块最多 128 MiB 的有序分块，当前块数和身份由[完整包清单](releases/v1.33.0-bundle.json)记录。程序逐块校验，合并后再核对整包哈希，最后才生成正式 ZIP；重试时保留已校验缓存和有归属的未完成下载。
+在工作项目中发送这一句话即可，无需先手动下载完整包：
 
-需要本地安装包或离线副本时，可以直接让 Codex 下载完整 bundle。已有安装入口支持 `--download-bundle 输出目录`；Windows 引导入口对应 `-DownloadBundle 输出目录`，Shell 入口对应 `项目路径 --download-bundle 输出目录`。兼容入口 `tools/fetch_bundle.py --project 项目路径 --output-dir 输出目录` 在准备好的 Python 3.12 下委托同一个程序完成下载。
+~~~text
+请从 https://github.com/jiang-zl/lotraAI-image2slide-skill-runtime 在当前项目安装或更新 lotraAI Image2Slide。
+~~~
 
-已有解压包可使用包内 `installer/install.ps1 -Project 项目路径`，或 `sh installer/install.sh 项目路径`。已有 Python 安装入口也支持 `--bundle-root 解压目录`，都进入共同的差分安装流程。macOS 首次准备 Math 时单独联网下载；完整包内保留既有 Windows/Linux Math，不包含 macOS DMG。
+Codex 按当前平台调用维护好的安装入口，先准备项目内运行资源，再登记唯一的 `lotra-image2slide-skill`。下载、续传、校验与分块合并由程序完成。已有安装优先复用项目 `.lotraAI-build/install-entry/Launcher.json` 中记录的入口；首次入口见[安装说明](docs/installation.zh-CN.md)。
 
-## 维护者上传发布
+如果已有完整 ZIP，提供文件或本地绝对路径，发送：
 
-准备好的发布目录提供 `Publish-v1.33.0.ps1`、`Publish-v1.33.0.sh`、`publish_lotra.py` 和精确的 `Publish-plan.json`。程序跳过已上传且匹配的附件，只重试失败分块，全部所需附件齐全后才切换当前版本分支。详见[发布说明](docs/publishing-v133.md)。
+~~~text
+请用提供的 lotraAI-image2slide-v1.33.0-bundle.zip 在当前项目安装或更新 Image2Slide。
+~~~
 
-首次安装按当前系统和架构选择资源。大资源可以分块下载，由程序自动续传、校验和合并。已有安装按文件清单差分同步：新增新文件、替换变化文件、移除新版已删除的受管理文件；未变化的生效文件不重复下载、不重新写入。文件改名时也优先复用本地相同内容。个人知识库、字体、任务、原图和 PPT 保留在私有 `.lotraAI-build` 中。
+### 2. 附上原图开始重建
 
-完整 bundle 继续提供有序分块，用于本地安装、离线保存和恢复，与正常安装共用正式下载器和内容缓存；日常更新无需下载完整 bundle。参见 [runtime 安装与完整包](https://github.com/jiang-zl/lotraAI-image2slide-skill-runtime)。
+~~~text
+用 $lotra-image2slide-skill 将这张图重建为可编辑 PPT。
+~~~
 
-## 平台与发布范围
+运行资源和私有任务状态位于项目 `.lotraAI-build`。使用方法和案例见[主项目](https://github.com/jiang-zl/lotraAI-image2slide-skill/blob/release/README.zh-CN.md)。
 
-产品版本仍为 **1.33.0**。Python/OCR 资源覆盖 Windows AMD64、Linux x86_64/aarch64、macOS Apple Silicon 和 Intel。完整 Math 准备已有 Windows AMD64、Linux x86_64 和两种 macOS 架构的资源路线。macOS 要求 13 或更新版本，需要首次联网取得固定哈希的 Math 磁盘镜像；该镜像未包含在完整 bundle 中。Linux ARM64 有核心资源，尚无随包完整 Math，安装器会明确报告该限制。
+## 按系统下载安装
 
-本次完成实现与静态代码审查。按用户要求，未运行产品测试、语法/import/CLI 检查、安装、重建/渲染或性能与效果测量。发布哈希用于标识分发内容，不代表运行时或重建质量验收。历史标签与归档保留。
+也可以先进入要使用 Image2Slide 的项目目录，直接执行对应命令。脚本会自动选择当前系统和架构，首次安装与后续更新使用同一入口。
 
-详细流程见[工作流说明](https://github.com/jiang-zl/lotraAI-image2slide-skill/blob/release/skills/lotra-image2slide-skill/references/workflow-v133.md)。
+**Windows（PowerShell）**
+
+```powershell
+$url = 'https://raw.githubusercontent.com/jiang-zl/lotraAI-image2slide-skill/release/install-lotra.ps1'
+curl.exe -fL --retry 2 --connect-timeout 20 $url -o install-lotra.ps1
+if ($LASTEXITCODE -eq 7) { curl.exe --noproxy '*' -fL --retry 2 --connect-timeout 20 $url -o install-lotra.ps1 }
+if ($LASTEXITCODE -eq 0) { powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\install-lotra.ps1 -Project (Get-Location).Path }
+```
+
+**macOS（终端，Apple Silicon / Intel）**
+
+```sh
+curl -fL --retry 2 'https://raw.githubusercontent.com/jiang-zl/lotraAI-image2slide-skill/release/install-lotra.sh' -o install-lotra.sh && sh install-lotra.sh "$PWD"
+```
+
+**Linux / WSL（终端）**
+
+```sh
+curl -fL --retry 2 'https://raw.githubusercontent.com/jiang-zl/lotraAI-image2slide-skill/release/install-lotra.sh' -o install-lotra.sh && sh install-lotra.sh "$PWD"
+```
+
+skill 包内也提供 `scripts/install-runtime.ps1` 和 `scripts/install-runtime.sh`，可为指定项目补齐或更新 runtime。各入口共用安装核心，使用相同的资源校验、缓存与差分同步流程。参数和已有解压包的用法见安装说明。
+
+## 下载并合并
+
+需要保存完整包时，把本仓库地址交给 Codex，再发送：
+
+~~~text
+下载 lotraAI Image2Slide 的完整安装包到当前项目。
+~~~
+
+[v1.33.0 完整包 Release](https://github.com/jiang-zl/lotraAI-image2slide-skill-runtime/releases/tag/v1.33.0) 的 18 个分块（`.part001` 至 `.part018`，每块不超过 128 MiB）是同一个 ZIP 按顺序切出的字节片段。程序按清单下载、逐块校验、合并并核对整包 SHA-256，完成后才生成正式 ZIP。中断后保留可续传的下载进度。
+
+下载和安装共用程序与内容缓存。已有解压包也可直接通过包内安装器进入同一安装流程；具体命令见[完整包与本地安装](docs/installation.zh-CN.md#完整包与本地安装)。
+
+## 差分更新
+
+更新仍使用快速开始中的同一句话。新版新增的文件加入、变化的文件替换、新版移除的受管理文件删除；未变化的生效文件不重复下载或写入。文件改名但内容相同时，优先复用本地已有内容，日常更新无需重新获取完整包。
+
+个人知识库、字体、任务、原图、PPT 和全局技能保留。用户自行改动过或归属不明的文件会保留并报告冲突，更新只清理有归属的受管理文件。
+
+[安装说明](docs/installation.zh-CN.md) · [v1.33.0 版本清单](releases/v1.33.0.json) · [来源与许可](NOTICE.md) · [版本与证据说明](docs/release-status.md)

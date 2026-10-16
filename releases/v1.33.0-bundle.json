@@ -1,142 +1,143 @@
 {
   "bundle": {
-    "bytes": 2408818538,
+    "bytes": 2408827196,
     "filename": "lotraAI-image2slide-v1.33.0-bundle.zip",
-    "manifest_sha256": "6f58453ae3f710c9c62b91cf6c9f99132faaacfbfe3f8293392f6e4408258fd3",
+    "manifest_sha256": "67e8721de50944c9db00acbb38c50eed46cac0d50af8217174e40d4526f128c7",
     "parts": [
       {
         "bytes": 134217728,
         "filename": "lotraAI-image2slide-v1.33.0-bundle.zip.part001",
         "index": 1,
-        "sha256": "02e1613d15ab353bacbad9c745c5109b22a77c31d9a42b842ef486b0bb2dc3f1",
-        "url": "https://github.com/jiang-zl/lotraAI-image2slide-skill-runtime/releases/download/v1.33.0-install-r5/lotraAI-image2slide-v1.33.0-bundle.zip.part001"
+        "sha256": "47034eb576312021abd22a0060f29fa7e2f8066067ba0029cb7e0203fd3c189d",
+        "url": "https://github.com/jiang-zl/lotraAI-image2slide-skill-runtime/releases/download/v1.33.0/lotraAI-image2slide-v1.33.0-bundle.zip.part001"
       },
       {
         "bytes": 134217728,
         "filename": "lotraAI-image2slide-v1.33.0-bundle.zip.part002",
         "index": 2,
-        "sha256": "146337abae99b14970398350aa16f4ffd4044bb73fc936dc8b074397429cf1a3",
-        "url": "https://github.com/jiang-zl/lotraAI-image2slide-skill-runtime/releases/download/v1.33.0-install-r5/lotraAI-image2slide-v1.33.0-bundle.zip.part002"
+        "sha256": "ebcef68e710a46d6d92d2dbaf8ad948e8701b77ca545876d82c7b78e921e4ec9",
+        "url": "https://github.com/jiang-zl/lotraAI-image2slide-skill-runtime/releases/download/v1.33.0/lotraAI-image2slide-v1.33.0-bundle.zip.part002"
       },
       {
         "bytes": 134217728,
         "filename": "lotraAI-image2slide-v1.33.0-bundle.zip.part003",
         "index": 3,
-        "sha256": "df2dd9a455e5673d68b6acace8eb372a9bc7f921646b31b4c3f9d2927140b132",
-        "url": "https://github.com/jiang-zl/lotraAI-image2slide-skill-runtime/releases/download/v1.33.0-install-r5/lotraAI-image2slide-v1.33.0-bundle.zip.part003"
+        "sha256": "c0fb5ebe77321275ce8a35da7b3dd0445d27ee9ffee46703eeefd53f5781b371",
+        "url": "https://github.com/jiang-zl/lotraAI-image2slide-skill-runtime/releases/download/v1.33.0/lotraAI-image2slide-v1.33.0-bundle.zip.part003"
       },
       {
         "bytes": 134217728,
         "filename": "lotraAI-image2slide-v1.33.0-bundle.zip.part004",
         "index": 4,
-        "sha256": "44487aca704b3736e542d6c786378f1713f089d99356e8d34256f0e150c688ae",
-        "url": "https://github.com/jiang-zl/lotraAI-image2slide-skill-runtime/releases/download/v1.33.0-install-r5/lotraAI-image2slide-v1.33.0-bundle.zip.part004"
+        "sha256": "a28701069e2becdebd79396576073019b08fa36230e403014410b3f17133756c",
+        "url": "https://github.com/jiang-zl/lotraAI-image2slide-skill-runtime/releases/download/v1.33.0/lotraAI-image2slide-v1.33.0-bundle.zip.part004"
       },
       {
         "bytes": 134217728,
         "filename": "lotraAI-image2slide-v1.33.0-bundle.zip.part005",
         "index": 5,
-        "sha256": "34aab7ef10f34fff164ad04b3053c7383e1c5f7e074cdd7f508f0cf8ca4cc384",
-        "url": "https://github.com/jiang-zl/lotraAI-image2slide-skill-runtime/releases/download/v1.33.0-install-r5/lotraAI-image2slide-v1.33.0-bundle.zip.part005"
+        "sha256": "e676d0cb3d2de6ae32fdda36b432b11501a93d98760f2228a77f951d931a57a5",
+        "url": "https://github.com/jiang-zl/lotraAI-image2slide-skill-runtime/releases/download/v1.33.0/lotraAI-image2slide-v1.33.0-bundle.zip.part005"
       },
       {
         "bytes": 134217728,
         "filename": "lotraAI-image2slide-v1.33.0-bundle.zip.part006",
         "index": 6,
-        "sha256": "c67313fc393ae2cd56d584081bd5dd7ce99dc8835821d6fdd18cb86d88c16f49",
-        "url": "https://github.com/jiang-zl/lotraAI-image2slide-skill-runtime/releases/download/v1.33.0-install-r5/lotraAI-image2slide-v1.33.0-bundle.zip.part006"
+        "sha256": "c8d578f7ae96782de3cae5c6450dca3b4a3af07a6fa19113cbaa178d56eb21c5",
+        "url": "https://github.com/jiang-zl/lotraAI-image2slide-skill-runtime/releases/download/v1.33.0/lotraAI-image2slide-v1.33.0-bundle.zip.part006"
       },
       {
         "bytes": 134217728,
         "filename": "lotraAI-image2slide-v1.33.0-bundle.zip.part007",
         "index": 7,
-        "sha256": "d9fd4d56f11b4cc30e2e90720471cb1cd81fed8a8274d932298d433d2d8020d0",
-        "url": "https://github.com/jiang-zl/lotraAI-image2slide-skill-runtime/releases/download/v1.33.0-install-r5/lotraAI-image2slide-v1.33.0-bundle.zip.part007"
+        "sha256": "9fcf16cfe44d5c5aaa7bc50eb669502f92e7ce7dda95eb9c87035eaba29a97d1",
+        "url": "https://github.com/jiang-zl/lotraAI-image2slide-skill-runtime/releases/download/v1.33.0/lotraAI-image2slide-v1.33.0-bundle.zip.part007"
       },
       {
         "bytes": 134217728,
         "filename": "lotraAI-image2slide-v1.33.0-bundle.zip.part008",
         "index": 8,
-        "sha256": "626f4d4cc3ab7cb6c4e9c28f63dfa4e5901840dbe59647fc5075c7bae386847c",
-        "url": "https://github.com/jiang-zl/lotraAI-image2slide-skill-runtime/releases/download/v1.33.0-install-r5/lotraAI-image2slide-v1.33.0-bundle.zip.part008"
+        "sha256": "8d48a9e12e0157adc12709aaec765802e1bd61329ed6f9cf8993e379015834f4",
+        "url": "https://github.com/jiang-zl/lotraAI-image2slide-skill-runtime/releases/download/v1.33.0/lotraAI-image2slide-v1.33.0-bundle.zip.part008"
       },
       {
         "bytes": 134217728,
         "filename": "lotraAI-image2slide-v1.33.0-bundle.zip.part009",
         "index": 9,
-        "sha256": "5c44335440870c85e0ab1e40cbdfcfca462e9eb3945e72f70c1dd4bad9bd8b8c",
-        "url": "https://github.com/jiang-zl/lotraAI-image2slide-skill-runtime/releases/download/v1.33.0-install-r5/lotraAI-image2slide-v1.33.0-bundle.zip.part009"
+        "sha256": "2916f212bcf66a4780ff33bed7a45d883d04937cea4c532e63a1b240b0c94819",
+        "url": "https://github.com/jiang-zl/lotraAI-image2slide-skill-runtime/releases/download/v1.33.0/lotraAI-image2slide-v1.33.0-bundle.zip.part009"
       },
       {
         "bytes": 134217728,
         "filename": "lotraAI-image2slide-v1.33.0-bundle.zip.part010",
         "index": 10,
-        "sha256": "d8c0ada9ff3b23b6c584eee2deb3a29fca2095d70ef914c515dc66d007d4eaca",
-        "url": "https://github.com/jiang-zl/lotraAI-image2slide-skill-runtime/releases/download/v1.33.0-install-r5/lotraAI-image2slide-v1.33.0-bundle.zip.part010"
+        "sha256": "f7e32dcf7e044e88ce3c07ef10f92efd6d79c85fa40307fb1887b991059938f2",
+        "url": "https://github.com/jiang-zl/lotraAI-image2slide-skill-runtime/releases/download/v1.33.0/lotraAI-image2slide-v1.33.0-bundle.zip.part010"
       },
       {
         "bytes": 134217728,
         "filename": "lotraAI-image2slide-v1.33.0-bundle.zip.part011",
         "index": 11,
-        "sha256": "17451933fd6e980883ada86764619c9402071be8c9da046c440f3aa5fe5e5ace",
-        "url": "https://github.com/jiang-zl/lotraAI-image2slide-skill-runtime/releases/download/v1.33.0-install-r5/lotraAI-image2slide-v1.33.0-bundle.zip.part011"
+        "sha256": "bd006cd948775d1a9e9adc47dfe5c38a2d800c302d0ba5e287e6a42338d09459",
+        "url": "https://github.com/jiang-zl/lotraAI-image2slide-skill-runtime/releases/download/v1.33.0/lotraAI-image2slide-v1.33.0-bundle.zip.part011"
       },
       {
         "bytes": 134217728,
         "filename": "lotraAI-image2slide-v1.33.0-bundle.zip.part012",
         "index": 12,
-        "sha256": "16b2e68472979f75464520f9bdd7d50e5d3b20eada6ce807aaaec2ed61796f56",
-        "url": "https://github.com/jiang-zl/lotraAI-image2slide-skill-runtime/releases/download/v1.33.0-install-r5/lotraAI-image2slide-v1.33.0-bundle.zip.part012"
+        "sha256": "da4d276d32c4a1deae2fb928d906c75251f879e55f8edd3d9a9a0ec928e19d99",
+        "url": "https://github.com/jiang-zl/lotraAI-image2slide-skill-runtime/releases/download/v1.33.0/lotraAI-image2slide-v1.33.0-bundle.zip.part012"
       },
       {
         "bytes": 134217728,
         "filename": "lotraAI-image2slide-v1.33.0-bundle.zip.part013",
         "index": 13,
-        "sha256": "0351b144883b0e9dc13608268d564102142479de5a18f04ab0ffc7c838208136",
-        "url": "https://github.com/jiang-zl/lotraAI-image2slide-skill-runtime/releases/download/v1.33.0-install-r5/lotraAI-image2slide-v1.33.0-bundle.zip.part013"
+        "sha256": "8aa5269fc61f2bb0aa61342ea168ce4357009340aca864e5a2eeb5728d56cbd4",
+        "url": "https://github.com/jiang-zl/lotraAI-image2slide-skill-runtime/releases/download/v1.33.0/lotraAI-image2slide-v1.33.0-bundle.zip.part013"
       },
       {
         "bytes": 134217728,
         "filename": "lotraAI-image2slide-v1.33.0-bundle.zip.part014",
         "index": 14,
-        "sha256": "f52e6933da11f8db6a5b63778ed5ddb942c6d6651754dca911f0846699eb139a",
-        "url": "https://github.com/jiang-zl/lotraAI-image2slide-skill-runtime/releases/download/v1.33.0-install-r5/lotraAI-image2slide-v1.33.0-bundle.zip.part014"
+        "sha256": "8194ccaa6f2921a065da5e891c7df310cc3e5e3034f79b6e2fc2ec0f1b451d9e",
+        "url": "https://github.com/jiang-zl/lotraAI-image2slide-skill-runtime/releases/download/v1.33.0/lotraAI-image2slide-v1.33.0-bundle.zip.part014"
       },
       {
         "bytes": 134217728,
         "filename": "lotraAI-image2slide-v1.33.0-bundle.zip.part015",
         "index": 15,
-        "sha256": "e0e4673cd912578508521b4aa8410149114ef2ae7f11853b12a7dcc40a8db500",
-        "url": "https://github.com/jiang-zl/lotraAI-image2slide-skill-runtime/releases/download/v1.33.0-install-r5/lotraAI-image2slide-v1.33.0-bundle.zip.part015"
+        "sha256": "374fe28a37a9e4112a395dbf7209c440a0e852f217dce1112d686a394ecfb72a",
+        "url": "https://github.com/jiang-zl/lotraAI-image2slide-skill-runtime/releases/download/v1.33.0/lotraAI-image2slide-v1.33.0-bundle.zip.part015"
       },
       {
         "bytes": 134217728,
         "filename": "lotraAI-image2slide-v1.33.0-bundle.zip.part016",
         "index": 16,
-        "sha256": "0f16f5aa9fdeceeed9867ddb2b9f3d7a2b4c4dce08d9bb480b612656e675720f",
-        "url": "https://github.com/jiang-zl/lotraAI-image2slide-skill-runtime/releases/download/v1.33.0-install-r5/lotraAI-image2slide-v1.33.0-bundle.zip.part016"
+        "sha256": "580bc814eef9c01a321bd5a063f3bd5b60adac63766c19e0ec61a7edccb65aa9",
+        "url": "https://github.com/jiang-zl/lotraAI-image2slide-skill-runtime/releases/download/v1.33.0/lotraAI-image2slide-v1.33.0-bundle.zip.part016"
       },
       {
         "bytes": 134217728,
         "filename": "lotraAI-image2slide-v1.33.0-bundle.zip.part017",
         "index": 17,
-        "sha256": "169ea9b83622d6472702eb78db3cfd5c6fb88fcdfaee536f1e039a4a9fcbfb82",
-        "url": "https://github.com/jiang-zl/lotraAI-image2slide-skill-runtime/releases/download/v1.33.0-install-r5/lotraAI-image2slide-v1.33.0-bundle.zip.part017"
+        "sha256": "86af1ee59d852356787916d4ddd513328ea612483512a398134ce7c16bd13277",
+        "url": "https://github.com/jiang-zl/lotraAI-image2slide-skill-runtime/releases/download/v1.33.0/lotraAI-image2slide-v1.33.0-bundle.zip.part017"
       },
       {
-        "bytes": 127117162,
+        "bytes": 127125820,
         "filename": "lotraAI-image2slide-v1.33.0-bundle.zip.part018",
         "index": 18,
-        "sha256": "7c3435207e9f12acf8c4ce875d739e6f390238be23bcd5a76fe7d83332855149",
-        "url": "https://github.com/jiang-zl/lotraAI-image2slide-skill-runtime/releases/download/v1.33.0-install-r5/lotraAI-image2slide-v1.33.0-bundle.zip.part018"
+        "sha256": "b85043b15915902be6c7b5ff86aec48a676758c7d08298c1bc89de640ea8c422",
+        "url": "https://github.com/jiang-zl/lotraAI-image2slide-skill-runtime/releases/download/v1.33.0/lotraAI-image2slide-v1.33.0-bundle.zip.part018"
       }
     ],
-    "sha256": "35629ac256415871f1b24c55c131fd28c7650ab2ce7a40696948b1f8222b597c"
+    "sha256": "9176c307f624be9203b94066f5001dd458c8b8ba975e6833a51974309a891abd"
   },
-  "platform_note": "macOS Math DMGs are fetched separately; Windows/Linux Math resources are retained",
+  "installation_checks": "PREPUBLICATION_WINDOWS_X64_WSL_LINUX_X64_PASSED",
+  "platform_note": "macOS Math DMGs are fetched separately from pinned official resources; Linux ARM64 lacks a complete Math package",
   "product": "lotraAI Image2Slide",
-  "product_checks": "NOT_RUN_PER_USER_REQUEST",
-  "publication_revision": 5,
+  "publication_revision": 6,
+  "reconstruction_checks": "NOT_RUN_PER_USER_REQUEST",
   "schema": "lotraai-publication-release-1",
   "version": "1.33.0"
 }

@@ -1,37 +1,84 @@
-# lotraAI runtime and automatic installation
+# lotraAI bundle and runtime distribution
 
-**English** | [简体中文](README.zh-CN.md)
+[English](README.md) · [简体中文](README.zh-CN.md)
 
-## Quick start
+This repository distributes the complete lotraAI bundle and platform runtime resources, and maintains automatic installation, differential updates and download manifests. Product documentation, examples and skill source are in the [main repository](https://github.com/jiang-zl/lotraAI-image2slide-skill).
 
-> Install or update lotraAI Image2Slide in this project from https://github.com/jiang-zl/lotraAI-image2slide-skill-runtime.
+## Current release: v1.33.0
 
-Codex downloads and runs the official program. The same sentence covers installation and file-differential updates.
+The complete file is `lotraAI-image2slide-v1.33.0-bundle.zip`, including the skill and the currently bundled resources. Its size, SHA-256 and ordered parts are recorded in the [bundle manifest](releases/v1.33.0-bundle.json).
 
-## Agent entry
+Resources cover Windows x64, Linux x64, and macOS on Apple Silicon and Intel. macOS requires 13 or later; its Math DMG is downloaded separately on first preparation and is not embedded in the complete bundle. Linux ARM64 has core resources but lacks a complete Math package. See the [installation guide](docs/installation.md).
 
-Use `.lotraAI-build/install-entry/Launcher.json` when present. Otherwise obtain `tools/install_lotra.ps1` for Windows or `tools/install_lotra.sh` for macOS/Linux from this repository's `release` branch and run it with the project path. It selects the platform, prepares private Python if needed, reads `releases/current.json` and calls the common installer. Do not recreate download scripts or print full manifests/logs.
+## Quick Start
 
-## Complete bundle
+### 1. Ask Codex to install or update
 
-The complete bundle remains split into ordered parts of at most 128 MiB. The current part count and identities are recorded in the [bundle manifest](releases/v1.33.0-bundle.json). Parts are transport units; the program checks every part and the whole archive before exposing the final ZIP. It preserves verified cache entries and owned partial downloads across retries.
+Send this one sentence in your working project. You do not need to download the complete bundle first:
 
-Ask Codex to download the complete bundle when you need local installation or an offline copy. The existing installation entry supports `--download-bundle OUTPUT_DIR`; Windows bootstrap uses `-DownloadBundle OUTPUT_DIR`, and the shell bootstrap accepts `PROJECT --download-bundle OUTPUT_DIR`. `tools/fetch_bundle.py --project PROJECT --output-dir OUTPUT_DIR` delegates to the same entry under prepared Python 3.12.
+~~~text
+Install or update lotraAI Image2Slide in this project from https://github.com/jiang-zl/lotraAI-image2slide-skill-runtime.
+~~~
 
-For a supplied extracted bundle, use its `installer/install.ps1 -Project PROJECT` or `sh installer/install.sh PROJECT`. The recorded Python entry also accepts `--bundle-root EXTRACTED_ROOT`. All routes use the same differential coordinator. macOS Math is fetched separately on first preparation; the full bundle includes the existing Windows/Linux Math packages, not the macOS DMGs.
+Codex runs the maintained entry for your platform, prepares project-local resources and registers the single `lotra-image2slide-skill`. The program handles downloads, resume, verification and part assembly. An existing installation prefers the entry recorded in `.lotraAI-build/install-entry/Launcher.json`; first-install entries are described in the [installation guide](docs/installation.md).
 
-## Maintainer publication
+Already have the complete ZIP? Supply the file or its absolute local path, then send:
 
-Prepared releases include `Publish-v1.33.0.ps1`, `Publish-v1.33.0.sh`, `publish_lotra.py` and an exact `Publish-plan.json`. The program skips matching uploaded assets, retries only failed parts and switches the current branches only after all required assets are present. See [publication instructions](docs/publishing-v133.md).
+~~~text
+Install or update Image2Slide in this project using the supplied lotraAI-image2slide-v1.33.0-bundle.zip.
+~~~
 
-First installation selects the current operating system and architecture. Large resource packages can use resumable, verified parts that the program merges automatically. Existing installations use managed file manifests: add new files, replace changed files, remove retired owned files and retain unchanged active files without downloading or rewriting them. Matching content is reused across renamed paths. Personal knowledge, fonts, tasks, source images and PPTs remain private in `.lotraAI-build`.
+### 2. Attach a reference image and start reconstructing
 
-A complete bundle remains available as ordered parts for local installation, offline storage and recovery. It uses the same maintained downloader and content cache; updates do not require downloading the full bundle. See [runtime installation and complete bundles](https://github.com/jiang-zl/lotraAI-image2slide-skill-runtime).
+~~~text
+Use $lotra-image2slide-skill to rebuild this image as an editable PPT.
+~~~
 
-## Platforms and release scope
+Runtime resources and private task state live in the project's `.lotraAI-build` directory. See the [main repository](https://github.com/jiang-zl/lotraAI-image2slide-skill) for usage and examples.
 
-Product version remains **1.33.0**. Python/OCR resources cover Windows AMD64, Linux x86_64/aarch64 and macOS Apple Silicon/Intel. Complete Math preparation has resource routes for Windows AMD64, Linux x86_64 and both macOS architectures. macOS requires 13 or later and downloads its pinned Math disk image once; that disk image is not included in the complete bundle. Linux ARM64 has core resources but no supplied complete Math package; the installer reports that limitation.
+## Download and install by operating system
 
-This update was implemented and reviewed statically. Product tests, syntax/import/CLI checks, installation runs, reconstruction/rendering and performance/effect measurements were not run, as requested. Publication hashes identify distribution bytes and do not establish runtime or reconstruction acceptance. Historical tags and archives are retained.
+Alternatively, open a terminal in your Image2Slide working project and run the command for your system. The entry selects the operating system and architecture automatically and serves both first installation and updates.
 
-See [workflow details](https://github.com/jiang-zl/lotraAI-image2slide-skill/blob/release/skills/lotra-image2slide-skill/references/workflow-v133.md).
+**Windows (PowerShell)**
+
+```powershell
+$url = 'https://raw.githubusercontent.com/jiang-zl/lotraAI-image2slide-skill/release/install-lotra.ps1'
+curl.exe -fL --retry 2 --connect-timeout 20 $url -o install-lotra.ps1
+if ($LASTEXITCODE -eq 7) { curl.exe --noproxy '*' -fL --retry 2 --connect-timeout 20 $url -o install-lotra.ps1 }
+if ($LASTEXITCODE -eq 0) { powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\install-lotra.ps1 -Project (Get-Location).Path }
+```
+
+**macOS (Terminal, Apple Silicon / Intel)**
+
+```sh
+curl -fL --retry 2 'https://raw.githubusercontent.com/jiang-zl/lotraAI-image2slide-skill/release/install-lotra.sh' -o install-lotra.sh && sh install-lotra.sh "$PWD"
+```
+
+**Linux / WSL (Terminal)**
+
+```sh
+curl -fL --retry 2 'https://raw.githubusercontent.com/jiang-zl/lotraAI-image2slide-skill/release/install-lotra.sh' -o install-lotra.sh && sh install-lotra.sh "$PWD"
+```
+
+The skill package also includes `scripts/install-runtime.ps1` and `scripts/install-runtime.sh` to prepare or update a chosen project's runtime. All entries share the same installer, resource verification, cache and differential synchronization. See the installation guide for arguments and installation from an extracted bundle.
+
+## Download and assemble
+
+To keep a complete copy, give Codex this repository URL and send:
+
+~~~text
+Download the complete lotraAI Image2Slide installation bundle into this project.
+~~~
+
+The [v1.33.0 bundle release](https://github.com/jiang-zl/lotraAI-image2slide-skill-runtime/releases/tag/v1.33.0) provides 18 parts (`.part001` through `.part018`, up to 128 MiB each), ordered byte segments of the same ZIP. The program follows the manifest, verifies each part, reassembles the archive and checks the complete SHA-256 before exposing the final ZIP. Interrupted downloads retain resumable progress.
+
+Downloading and installation share the maintained program and content cache. An extracted bundle can use its bundled installer to enter the same installation flow. See [complete bundles and local installation](docs/installation.md#complete-bundles-and-local-installation) for commands.
+
+## Differential updates
+
+Use the same Quick Start sentence to update. New files are added, changed files replaced and retired managed files removed. Unchanged active files are neither downloaded nor rewritten. Identical content is reused when paths change, and routine updates do not require the complete bundle again.
+
+Your knowledge library, fonts, tasks, originals, PPTs and global skills are preserved. User-modified or unrecognized files are retained and reported as conflicts; cleanup applies only to owned managed files.
+
+[Installation](docs/installation.md) · [v1.33.0 manifest](releases/v1.33.0.json) · [Provenance](NOTICE.md) · [Release and evidence notes](docs/release-status.md)
