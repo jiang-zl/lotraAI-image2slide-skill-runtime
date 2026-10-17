@@ -244,7 +244,7 @@ def public_gate(client,groups):
         if rel['draft'] or rel['tag_name']!='v1.33.0' or any(r['name'] not in actual or not matching(actual[r['name']],r) for r in group['assets']):
             raise ValueError('Public release metadata differs: '+repo)
         if repo.endswith('-runtime'):
-            channel=json.loads(read('https://raw.githubusercontent.com/'+repo+'/release/releases/current.json'))
+            channel=json.loads(read('https://raw.githubusercontent.com/'+repo+'/dev/releases/current.json'))
             if channel.get('schema')!='lotra-install-channel-1' or channel.get('version')!='1.33.0':raise ValueError('Public installation channel is not current')
             expected={r['name']:r for r in group['assets']}
             for field,name in [('entry','install_lotra.py'),('catalog','release.json'),('bundle','v1.33.0-bundle.json')]:

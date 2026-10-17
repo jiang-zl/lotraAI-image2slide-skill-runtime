@@ -3,7 +3,7 @@
 import argparse, hashlib, json, os, subprocess, sys, time, urllib.error, urllib.request
 from pathlib import Path, PurePosixPath
 
-CHANNEL='https://raw.githubusercontent.com/jiang-zl/lotraAI-image2slide-skill-runtime/release/releases/current.json'
+CHANNEL='https://raw.githubusercontent.com/jiang-zl/lotraAI-image2slide-skill-runtime/dev/releases/current.json'
 
 
 def digest(file):

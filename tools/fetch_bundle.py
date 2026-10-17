@@ -9,7 +9,7 @@ import sys
 import urllib.request
 from pathlib import Path
 
-CHANNEL='https://raw.githubusercontent.com/jiang-zl/lotraAI-image2slide-skill-runtime/release/releases/current.json'
+CHANNEL='https://raw.githubusercontent.com/jiang-zl/lotraAI-image2slide-skill-runtime/dev/releases/current.json'
 
 
 def read(url,limit):

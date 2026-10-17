@@ -1,12 +1,16 @@
 # lotraAI bundle and runtime distribution
 
+**Current product release: 1.35.2** · Development/default branch: `dev` · Version branch: `1.35.2`
+
+Both branches currently serve product 1.35.2. Runtime binaries remain 1.14.0; unchanged platform resources remain in the existing `v1.34.0` resource release. The product release tag is [`v1.35.2`](https://github.com/jiang-zl/lotraAI-image2slide-skill/releases/tag/v1.35.2). Branches use `dev` or `X.Y.Z`; tags use `vX.Y.Z` without extra suffixes.
+
 [English](README.md) · [简体中文](README.zh-CN.md)
 
 This repository distributes the complete lotraAI bundle and platform runtime resources, and maintains automatic installation, differential updates and download manifests. Product documentation, examples and skill source are in the [main repository](https://github.com/jiang-zl/lotraAI-image2slide-skill).
 
-## Current release: v1.34.0
+## Current complete bundle: 1.35.2
 
-The complete file is `lotraAI-image2slide-v1.34.0-bundle.zip`, including the skill and the currently bundled resources. Its size, SHA-256 and ordered parts are recorded in the [bundle manifest](releases/v1.34.0-bundle.json).
+The complete file is `lotraAI-image2slide-v1.35.2-bundle.zip`, including the skill and the currently bundled resources. Its size, SHA-256 and ordered parts are recorded in the [bundle manifest](https://github.com/jiang-zl/lotraAI-image2slide-skill/releases/download/v1.35.2/v1.35.2-bundle.json).
 
 Resources cover Windows x64, Linux x64, and macOS on Apple Silicon and Intel. macOS requires 13 or later; its Math DMG is downloaded separately on first preparation and is not embedded in the complete bundle. Linux ARM64 has core resources but lacks a complete Math package. See the [installation guide](docs/installation.md).
 
@@ -25,7 +29,7 @@ Codex runs the maintained entry for your platform, prepares project-local resour
 Already have the complete ZIP? Supply the file or its absolute local path, then send:
 
 ~~~text
-Install or update Image2Slide in this project using the supplied lotraAI-image2slide-v1.34.0-bundle.zip.
+Install or update Image2Slide in this project using the supplied lotraAI-image2slide-v1.35.2-bundle.zip.
 ~~~
 
 ### 2. Attach a reference image and start reconstructing
@@ -43,7 +47,7 @@ Alternatively, open a terminal in your Image2Slide working project and run the c
 **Windows (PowerShell)**
 
 ```powershell
-$url = 'https://raw.githubusercontent.com/jiang-zl/lotraAI-image2slide-skill/release/install-lotra.ps1'
+$url = 'https://raw.githubusercontent.com/jiang-zl/lotraAI-image2slide-skill/dev/install-lotra.ps1'
 curl.exe -fL --retry 2 --connect-timeout 20 $url -o install-lotra.ps1
 if ($LASTEXITCODE -eq 7) { curl.exe --noproxy '*' -fL --retry 2 --connect-timeout 20 $url -o install-lotra.ps1 }
 if ($LASTEXITCODE -eq 0) { powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\install-lotra.ps1 -Project (Get-Location).Path }
@@ -52,13 +56,13 @@ if ($LASTEXITCODE -eq 0) { powershell.exe -NoProfile -ExecutionPolicy Bypass -Fi
 **macOS (Terminal, Apple Silicon / Intel)**
 
 ```sh
-curl -fL --retry 2 'https://raw.githubusercontent.com/jiang-zl/lotraAI-image2slide-skill/release/install-lotra.sh' -o install-lotra.sh && sh install-lotra.sh "$PWD"
+curl -fL --retry 2 'https://raw.githubusercontent.com/jiang-zl/lotraAI-image2slide-skill/dev/install-lotra.sh' -o install-lotra.sh && sh install-lotra.sh "$PWD"
 ```
 
 **Linux / WSL (Terminal)**
 
 ```sh
-curl -fL --retry 2 'https://raw.githubusercontent.com/jiang-zl/lotraAI-image2slide-skill/release/install-lotra.sh' -o install-lotra.sh && sh install-lotra.sh "$PWD"
+curl -fL --retry 2 'https://raw.githubusercontent.com/jiang-zl/lotraAI-image2slide-skill/dev/install-lotra.sh' -o install-lotra.sh && sh install-lotra.sh "$PWD"
 ```
 
 The skill package also includes `scripts/install-runtime.ps1` and `scripts/install-runtime.sh` to prepare or update a chosen project's runtime. All entries share the same installer, resource verification, cache and differential synchronization. See the installation guide for arguments and installation from an extracted bundle.
@@ -71,7 +75,7 @@ To keep a complete copy, give Codex this repository URL and send:
 Download the complete lotraAI Image2Slide installation bundle into this project.
 ~~~
 
-The [v1.34.0 bundle release](https://github.com/jiang-zl/lotraAI-image2slide-skill-runtime/releases/tag/v1.34.0) provides 18 parts (`.part001` through `.part018`, up to 128 MiB each), ordered byte segments of the same ZIP. The program follows the manifest, verifies each part, reassembles the archive and checks the complete SHA-256 before exposing the final ZIP. Interrupted downloads retain resumable progress.
+The [1.35.2 bundle release](https://github.com/jiang-zl/lotraAI-image2slide-skill/releases/tag/v1.35.2) provides 18 parts (`.part001` through `.part018`, up to 128 MiB each), ordered byte segments of the same ZIP. The program follows the manifest, verifies each part, reassembles the archive and checks the complete SHA-256 before exposing the final ZIP. Interrupted downloads retain resumable progress.
 
 Downloading and installation share the maintained program and content cache. An extracted bundle can use its bundled installer to enter the same installation flow. See [complete bundles and local installation](docs/installation.md#complete-bundles-and-local-installation) for commands.
 
@@ -81,4 +85,4 @@ Use the same Quick Start sentence to update. New files are added, changed files 
 
 Your knowledge library, fonts, tasks, originals, PPTs and global skills are preserved. User-modified or unrecognized files are retained and reported as conflicts; cleanup applies only to owned managed files.
 
-[Installation](docs/installation.md) · [v1.34.0 manifest](releases/v1.34.0.json) · [Provenance](NOTICE.md) · [Release and evidence notes](docs/release-status.md)
+[Installation](docs/installation.md) · [1.35.2 installation catalog](https://github.com/jiang-zl/lotraAI-image2slide-skill/releases/download/v1.35.2/release.json) · [Provenance](NOTICE.md) · [Release and evidence notes](docs/release-status.md)
