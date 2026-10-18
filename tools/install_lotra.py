@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """One runtime-repository entry. Python 3.12; only stdlib before runtime setup."""
-import argparse, hashlib, json, os, subprocess, sys, time, urllib.error, urllib.request
+import argparse, hashlib, json, os, subprocess, sys, time, urllib.error, urllib.request, urllib.parse
 from pathlib import Path, PurePosixPath
 
 CHANNEL='https://raw.githubusercontent.com/jiang-zl/lotraAI-image2slide-skill-runtime/dev/releases/current.json'
@@ -37,7 +37,7 @@ def request(url,headers=None,limit=2*1024*1024):
     for attempt in range(3):
         try:
             transport=urllib.request.build_opener(urllib.request.ProxyHandler({})) if attempt and ('10061' in str(last) or 'refused' in str(last).lower()) else urllib.request.build_opener()
-            with transport.open(urllib.request.Request(url,headers={'User-Agent':'lotraAI-install-entry/1.34.0',**(headers or {})}),timeout=60) as response:
+            with transport.open(urllib.request.Request(url,headers={'User-Agent':'lotraAI-install-entry/1.35.3',**(headers or {})}),timeout=60) as response:
                 data=response.read(limit+1)
                 if len(data)>limit:raise ValueError('Installer metadata exceeds byte limit')
                 return data,response.headers.get('ETag')
@@ -54,7 +54,29 @@ def fetch(record,cache):
     if file.is_file():
         if file.stat().st_size==record['bytes'] and digest(file)==record['sha256']:return file
         raise ValueError('Preserve changed installer cache')
-    data,_=request(record['url'],limit=record['bytes'])
+    try:
+        data,_=request(record['url'],limit=record['bytes'])
+    except (OSError,RuntimeError):
+        parsed=urllib.parse.urlsplit(record['url']);parts=parsed.path.strip('/').split('/')
+        if (parsed.scheme!='https' or parsed.netloc!='github.com' or parsed.query or len(parts)!=6
+                or parts[2:4]!=['releases','download'] or '/'.join(parts[:2]) not in
+                ('jiang-zl/lotraAI-image2slide-skill','jiang-zl/lotraAI-image2slide-skill-runtime')):raise
+        base='https://api.github.com/repos/'+'/'.join(parts[:2])
+        tag,name=map(urllib.parse.unquote,parts[4:])
+        release=json.loads(request(base+'/releases/tags/'+urllib.parse.quote(tag,safe=''))[0])
+        if release.get('tag_name')!=tag:raise ValueError('GitHub fallback release differs')
+        asset=None
+        for page in range(1,11):
+            rows=json.loads(request(base+'/releases/'+str(int(release['id']))+'/assets?per_page=100&page='+str(page))[0])
+            matches=[a for a in rows if a.get('name')==name]
+            if matches:
+                if len(matches)!=1 or matches[0].get('size')!=record['bytes'] or matches[0].get('state')!='uploaded':
+                    raise ValueError('GitHub fallback asset identity differs')
+                asset=matches[0];break
+            if len(rows)<100:break
+        if asset is None:raise ValueError('Pinned GitHub release asset was not found')
+        data,_=request(base+'/releases/assets/'+str(int(asset['id'])),
+            headers={'Accept':'application/octet-stream'},limit=record['bytes'])
     if len(data)!=record['bytes'] or hashlib.sha256(data).hexdigest()!=record['sha256']:raise ValueError('Installer file hash differs')
     write(file,data);return file
 

@@ -1,30 +1,34 @@
-# 1.34.0 evidence / 验证范围
+# 1.35.3 validation scope
 
-Windows x64 and WSL/Linux x64 complete-bundle installations and startup checks
-passed. Normal online coordinator updates and recorded repeats were exercised
-against local HTTP mirrors with unchanged installer logic/payload bytes; only
-distribution URLs and derived pins differed. Private sentinels were retained,
-and unchanged active files were not rewritten on repeat.
+The user approved implementation, the proposed validation work and GitHub
+publication. Earlier releases' no-test instructions do not describe this patch.
 
-42 focused positive/counterexample checks, current-source syntax/import checks,
-native constructor actual rendering and a synthetic accepted reconstruction
-flow were executed. Installation, render consistency and original artwork
-acceptance are separate channels. Historical galleries and the external user's
-art are not v1.34.0 accepted benchmarks. No performance/token saving is claimed.
+| Channel | Current evidence |
+| --- | --- |
+| Focused regressions | 20 tests passed on Windows and the same 20 passed on WSL/Linux; 4 maintained-entry fallback tests passed on Windows |
+| Native Math startup | Windows hosted and external UNO routes passed |
+| Actual formula export | Windows hosted/external and WSL/Linux external routes passed |
+| Formula fixture coverage | Five OMML zones: fraction, sub/superscripts, summation, integral, mixed English/Chinese text |
+| Input/output integrity | Original PPTX bytes and five OMML zones retained; five native Math observations; one-page PDF independently rasterized; temporary PDF released |
+| Windows complete-bundle installation | PASS: real core and Math readiness, single main-skill registration |
+| Windows repeat | PASS: all 435 active skill files retained without rewriting, core resources reused, fresh Math startup probe |
+| Windows partial installation resume | PASS: upgrade from only v1.35.2 skill files and no core success descriptor; sentinel retained |
+| Static source/call-chain review | Performed; see Static-review.md |
+| Syntax/import/CLI and package identities | Recorded by final checks and package receipts |
+| macOS Apple Silicon and Intel | Physical-host installation/startup/render checks PENDING: no host available |
+| Office interactive editing behavior | NOT_RUN |
+| Whole original-image reconstruction | NOT_RUN; no external user-artwork acceptance claim |
+| Performance/provider-token effects | NOT_RUN |
 
-Windows LibreOffice and cross-environment bitwise rasterization limitations are
-preserved in the detailed report. Office editing behavior was excluded, not
-passed. macOS hosts were not tested. Public installation of v1.34.0 is a separate
-check after the maintainer manually uploads the matching runtime assets.
+Windows sandbox named-pipe use timed out; the external UNO startup/export route
+passed when run through the authorized host facility. This limitation is kept
+separate from the successful in-application Windows route and from macOS status.
+The first deeply nested Windows install fixture also failed to connect UNO;
+the same prepared resources passed from a shorter project-private path. Deep
+Windows installation paths are not qualified by this release. See
+Installation-checks.json for the bounded installation conclusions.
 
-Windows x64、WSL/Linux x64 的完整包安装、启动、本机 HTTP 更新及记录入口重复
-运行已通过。镜像仅改分发地址与派生校验值；实际安装逻辑和载荷保持一致。私有
-测试文件保留，重复运行未改写未变化的生效文件。
-
-本次执行了 42 项针对性检查、源码语法/导入、原生构造实际渲染及合成图完整验收
-流程。它们不代表外部用户原图验收、普遍效果提升或 token 节省。Windows
-LibreOffice、跨环境逐字节栅格化限制保留在详报中。Office 编辑行为排除且未计为
-通过；macOS 未实机验证。GitHub 正常安装须在人工上传 runtime 后另行确认。
-
-Detailed source release report / 详细报告:
-https://github.com/jiang-zl/lotraAI-image2slide-skill/blob/v1.34.0/docs/v1.34.0/Validation-report.md
+The Mac code path is implemented and selected, but Mac compatibility remains to
+be qualified on a real host. No Windows/WSL receipt is reused as Mac PASS. The
+unchanged runtime 1.14.0/resource identities do not certify a newly installed
+host. Public release/download/channel verification is recorded separately.

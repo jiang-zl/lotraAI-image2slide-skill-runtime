@@ -82,3 +82,11 @@ The program returns a compact summary and keeps detailed records in the project'
 `core_ready`, `render_ready`, `native_edit_ready` and acceptance of a particular reconstruction are separate records. Completing installation does not establish the quality of a rebuilt figure.
 
 When Codex performs the work, prefer the entry and compact result. Read the relevant detailed log only for a specific error, without expanding all manifests, cache contents and logs into the conversation.
+
+## macOS Math backend (1.35.3)
+
+The signed LibreOffice application runs a fixed Python/UNO worker in a new project-private profile; the installer does not spawn its constrained bundled interpreter. Application signatures and system security settings are preserved. The same worker is used for startup checks and actual export. A fresh native Math startup probe is required on each installation attempt.
+
+If a prior attempt installed only the skill files, rerun the maintained installation entry in that same project. Verified resources are retained. Read the current attempt’s `Failure.json`, `Math-backend-failure.json` and referenced `backend-result.json` for phase, commands, exit status and log paths. A core stage that was never reached is `NOT_RUN`. A successful startup check does not certify document rendering or artwork quality.
+
+GitHub release downloads have a bounded official asset-API fallback, retaining the exact byte count, SHA-256, range checks and cache ownership. macOS Math DMGs still use their pinned upstream URL. macOS Apple Silicon and Intel physical-host checks remain pending; Windows tests do not qualify either Mac architecture.
