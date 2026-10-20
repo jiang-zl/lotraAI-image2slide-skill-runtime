@@ -13,7 +13,7 @@ CHANNEL='https://raw.githubusercontent.com/jiang-zl/lotraAI-image2slide-skill-ru
 
 
 def read(url,limit):
-    with urllib.request.urlopen(urllib.request.Request(url,headers={'User-Agent':'lotraAI-bundle-entry/1.34.0'}),timeout=60) as response:
+    with urllib.request.urlopen(urllib.request.Request(url,headers={'User-Agent':'lotraAI-bundle-entry'}),timeout=60) as response:
         data=response.read(limit+1)
     if len(data)>limit:raise ValueError('Installation entry exceeds its byte limit')
     return data

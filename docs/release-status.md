@@ -1,34 +1,29 @@
-# 1.35.4 validation scope
+# 1.35.5 installation validation
 
-The user approved implementation, the proposed validation work and GitHub
-publication. Earlier releases' no-test instructions do not describe this patch.
+Only current 1.35.5 receipts qualify this patch. Prior 1.35.3 Math/backend and
+1.35.4 installation checks remain historical and keep their original versions.
 
 | Channel | Current evidence |
 | --- | --- |
-| Focused regressions | 20 tests passed on Windows and the same 20 passed on WSL/Linux; 4 maintained-entry fallback tests passed on Windows |
-| Native Math startup | Windows hosted and external UNO routes passed |
-| Actual formula export | Windows hosted/external and WSL/Linux external routes passed |
-| Formula fixture coverage | Five OMML zones: fraction, sub/superscripts, summation, integral, mixed English/Chinese text |
-| Input/output integrity | Original PPTX bytes and five OMML zones retained; five native Math observations; one-page PDF independently rasterized; temporary PDF released |
-| Windows complete-bundle installation | PASS: real core and Math readiness, single main-skill registration |
-| Windows repeat | PASS: all 435 active skill files retained without rewriting, core resources reused, fresh Math startup probe |
-| Windows partial installation resume | PASS: upgrade from only v1.35.2 skill files and no core success descriptor; sentinel retained |
-| Static source/call-chain review | Performed; see Static-review.md |
-| Syntax/import/CLI and package identities | Recorded by final checks and package receipts |
-| macOS Apple Silicon and Intel | Physical-host installation/startup/render checks PENDING: no host available |
-| Office interactive editing behavior | NOT_RUN |
-| Whole original-image reconstruction | NOT_RUN; no external user-artwork acceptance claim |
+| Windows regressions | 23 focused checks: seven bootstrap, ten product/packager/part bindings and six release-gate counterexamples |
+| WSL/Linux regressions | The same 23 focused checks |
+| Generator repeat | Current entries and coordinator/packager version constants retain identical bytes and mtimes on repeated generation |
+| Final distribution versions | tools/validate_release_versions.py checks source/runtime, current docs, pins, catalog hashes and actual ZIP members; see Version-consistency.json |
+| Final shell/PowerShell parsing | Actual loose assets, skill ZIP, complete ZIP and nested skill members are parsed; see Final-distribution-checks.json |
+| Complete-bundle installations | Current Windows/Linux first/repeat receipts, core and Math startup readiness, one main skill and sentinel preservation: Installation-checks.json |
+| README installation commands | Exact current public command blocks are checked after source/channel publication; first/repeat results: Installation-checks.json |
+| Complete-bundle downloads | Actual current manifest, inherited part identities, hash-addressed cache and first/repeat output preservation: Installation-checks.json |
+| Runtime resources | Existing runtime 1.14.0, engines, companion, OCR and Math archive records are unchanged; no binary upload |
+| Physical macOS | NOT_RUN; Linux parsing is not Mac hardware qualification |
+| Reconstruction/formula rendering/Office interactive editing | NOT_RUN for this patch |
 | Performance/provider-token effects | NOT_RUN |
 
-Windows sandbox named-pipe use timed out; the external UNO startup/export route
-passed when run through the authorized host facility. This limitation is kept
-separate from the successful in-application Windows route and from macOS status.
-The first deeply nested Windows install fixture also failed to connect UNO;
-the same prepared resources passed from a shorter project-private path. Deep
-Windows installation paths are not qualified by this release. See
-Installation-checks.json for the bounded installation conclusions.
+Large unchanged archives may be preseeded in a hash-verified fixture cache;
+installation success descriptors are absent before first installs. Windows
+public checks use process-level direct networking where required, without
+changing saved proxy settings. Linux uses owned native WSL filesystem projects.
+Actual final public identities are verified separately from local fixture checks.
 
-The Mac code path is implemented and selected, but Mac compatibility remains to
-be qualified on a real host. No Windows/WSL receipt is reused as Mac PASS. The
-unchanged runtime 1.14.0/resource identities do not certify a newly installed
-host. Public release/download/channel verification is recorded separately.
+The unversioned docs/Installation-checks.json is preserved historical 1.35.3
+evidence. It is not the current version's receipt. Current receipts are attached
+to the source v1.35.5 Release as Installation-checks.json.

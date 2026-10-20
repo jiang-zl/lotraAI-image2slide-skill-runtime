@@ -32,7 +32,7 @@ sh tools/install_lotra.sh '/absolute/path/to/my-project'
 
 ## 完整包与本地安装
 
-完整包由清单规定的 18 个有序分块组成，下载程序负责续传、逐块校验、合并与整包校验。需要先下载到指定位置时，可使用：
+完整包由清单规定的 19 个有序分块组成，下载程序负责续传、逐块校验、合并与整包校验。需要先下载到指定位置时，可使用：
 
 Windows：
 
@@ -91,6 +91,6 @@ Windows/Linux x64 的 Math 包随完整资源提供；macOS 的 Math DMG 需要�
 
 GitHub Release 下载增加有限次数的官方资产 API 备用通道，仍校验相同的大小、SHA-256、范围响应和缓存归属。macOS Math DMG 继续使用固定的上游地址。Apple Silicon 与 Intel 的 macOS 实机检查仍待完成，Windows 结果不作为两种 Mac 架构的通过证据。
 
-## 1.35.4 安装入口
+## 1.35.5 安装入口
 
 所有 shell 安装入口使用无 BOM 的 UTF-8 与 LF。维护者从固定模板生成入口，并对最终附件、skill ZIP 和完整包中的实际脚本执行解析检查。Windows 入口同时检查 Windows PowerShell 解析与真实安装。runtime 二进制与资源包保持不变。

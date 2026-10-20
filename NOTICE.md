@@ -4,4 +4,4 @@ The complete bundle retains the source distribution's engine inventories, upstre
 
 The source bundle includes LibreOffice Math for Windows/Linux x86-64. Inherited notices include earlier scope descriptions; consult the current manifest for supplied resources and preserved upstream records for terms.
 
-A separate open-source license for project-authored source has not been selected. The original bundle remains preserved in the preparation source project. The publication copy changes only the outer Linux installer's newline representation and corresponding integrity records. Integrity hashes are not publisher signatures.
+A separate open-source license for project-authored source has not been selected. The original bundle remains preserved in the preparation source project. Current installer and catalog patches retain runtime binary/resource identities; the current publication notes record their actual scope. Integrity hashes are not publisher signatures.
