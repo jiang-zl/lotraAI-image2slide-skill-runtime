@@ -1,4 +1,4 @@
-# 1.35.3 validation scope
+# 1.35.4 validation scope
 
 The user approved implementation, the proposed validation work and GitHub
 publication. Earlier releases' no-test instructions do not describe this patch.
