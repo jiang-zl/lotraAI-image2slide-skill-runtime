@@ -1,4 +1,4 @@
-# 1.37.0 installation validation
+# 1.37.1 installation validation
 
 Current receipts are required; historical versions do not qualify this release.
 Read Installation-checks.json, Backend-and-delivery-checks.json,
