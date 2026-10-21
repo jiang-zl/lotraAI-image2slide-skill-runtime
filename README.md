@@ -1,20 +1,30 @@
 # lotraAI bundle and runtime distribution
 
+
+<!-- workflow-v137:start -->
+1.37.0 remains a portable skill: project-local `start → next → submit` packets,
+incremental original observation/binding, complete quality gates and formal export.
+A checkpoint or native build is not an accepted result. Use `delivery-check` for
+the current task and exact final PPTX bytes. No replacement harness, resident
+service or extra model key is required; an optional checker does not control a
+third-party harness's reply.
+<!-- workflow-v137:end -->
+
 Prefer a qualified local PowerPoint/WPS backend, with optional LibreOffice fallback. Every final file gets actual export/save checks; user-selected output roots default to the project directory. Runtime 1.14.0 binaries are reused. Physical WPS/macOS qualification requires the corresponding host.
 
 
 
-**Current product release: 1.36.0** · Development/default branch: `dev` · Version branch: `1.36.0`
+**Current product release: 1.37.0** · Development/default branch: `dev` · Version branch: `1.37.0`
 
-Both branches currently serve product 1.36.0. Runtime binaries remain 1.14.0; unchanged platform resources remain in the existing `v1.34.0` resource release. The product release tag is [`v1.36.0`](https://github.com/jiang-zl/lotraAI-image2slide-skill/releases/tag/v1.36.0). Branches use `dev` or `X.Y.Z`; tags use `vX.Y.Z` without extra suffixes.
+Both branches currently serve product 1.37.0. Runtime binaries remain 1.14.0; unchanged platform resources remain in the existing `v1.34.0` resource release. The product release tag is [`v1.37.0`](https://github.com/jiang-zl/lotraAI-image2slide-skill/releases/tag/v1.37.0). Branches use `dev` or `X.Y.Z`; tags use `vX.Y.Z` without extra suffixes.
 
 [English](README.md) · [简体中文](README.zh-CN.md)
 
 This repository distributes the complete lotraAI bundle and platform runtime resources, and maintains automatic installation, differential updates and download manifests. Product documentation, examples and skill source are in the [main repository](https://github.com/jiang-zl/lotraAI-image2slide-skill).
 
-## Current complete bundle: 1.36.0
+## Current complete bundle: 1.37.0
 
-The complete file is `lotraAI-image2slide-v1.36.0-bundle.zip`, including the skill and the currently bundled resources. Its size, SHA-256 and ordered parts are recorded in the [bundle manifest](https://github.com/jiang-zl/lotraAI-image2slide-skill/releases/download/v1.36.0/v1.36.0-bundle.json).
+The complete file is `lotraAI-image2slide-v1.37.0-bundle.zip`, including the skill and the currently bundled resources. Its size, SHA-256 and ordered parts are recorded in the [bundle manifest](https://github.com/jiang-zl/lotraAI-image2slide-skill/releases/download/v1.37.0/v1.37.0-bundle.json).
 
 Resources cover Windows x64, Linux x64, and macOS on Apple Silicon and Intel. macOS requires 13 or later; when LibreOffice fallback is needed its Math DMG is downloaded separately and is not embedded in the complete bundle. Linux ARM64 has core resources but lacks a complete Math package. See the [installation guide](docs/installation.md).
 
@@ -33,7 +43,7 @@ Codex runs the maintained entry for your platform, prepares project-local resour
 Already have the complete ZIP? Supply the file or its absolute local path, then send:
 
 ~~~text
-Install or update Image2Slide in this project using the supplied lotraAI-image2slide-v1.36.0-bundle.zip.
+Install or update Image2Slide in this project using the supplied lotraAI-image2slide-v1.37.0-bundle.zip.
 ~~~
 
 ### 2. Attach a reference image and start reconstructing
@@ -79,7 +89,7 @@ To keep a complete copy, give Codex this repository URL and send:
 Download the complete lotraAI Image2Slide installation bundle into this project.
 ~~~
 
-The [1.36.0 bundle release](https://github.com/jiang-zl/lotraAI-image2slide-skill/releases/tag/v1.36.0) provides 19 parts (`.part001` through `.part019`, up to 128 MiB each), ordered byte segments of the same ZIP. The program follows the manifest, verifies each part, reassembles the archive and checks the complete SHA-256 before exposing the final ZIP. Interrupted downloads retain resumable progress.
+The [1.37.0 bundle release](https://github.com/jiang-zl/lotraAI-image2slide-skill/releases/tag/v1.37.0) provides 19 parts (`.part001` through `.part019`, up to 128 MiB each), ordered byte segments of the same ZIP. The program follows the manifest, verifies each part, reassembles the archive and checks the complete SHA-256 before exposing the final ZIP. Interrupted downloads retain resumable progress.
 
 Downloading and installation share the maintained program and content cache. An extracted bundle can use its bundled installer to enter the same installation flow. See [complete bundles and local installation](docs/installation.md#complete-bundles-and-local-installation) for commands.
 
@@ -89,7 +99,7 @@ Use the same Quick Start sentence to update. New files are added, changed files 
 
 Your knowledge library, fonts, tasks, originals, PPTs and global skills are preserved. User-modified or unrecognized files are retained and reported as conflicts; cleanup applies only to owned managed files.
 
-[Installation](docs/installation.md) · [1.36.0 installation catalog](https://github.com/jiang-zl/lotraAI-image2slide-skill/releases/download/v1.36.0/release.json) · [Provenance](NOTICE.md) · [Release and evidence notes](docs/release-status.md)
+[Installation](docs/installation.md) · [1.37.0 installation catalog](https://github.com/jiang-zl/lotraAI-image2slide-skill/releases/download/v1.37.0/release.json) · [Provenance](NOTICE.md) · [Release and evidence notes](docs/release-status.md)
 
 ## Local applications and output location
 
