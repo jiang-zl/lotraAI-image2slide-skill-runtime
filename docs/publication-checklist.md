@@ -1,6 +1,6 @@
-# Publication bindings for 1.35.5
+# Publication bindings for 1.36.0
 
-- Product/version branch/tag: 1.35.5 / 1.35.5 / v1.35.5; the formal product tag is in the source repository.
+- Product/version branch/tag: 1.36.0 / 1.36.0 / v1.36.0; the formal product tag is in the source repository.
 - Both repositories use dev as the development/default branch. The numeric branch serves the released product.
 - Follow releases/current.json for the maintained installer, product catalog and complete-bundle manifest.
 - The current complete bundle has 19 parts: 18 inherited immutable parts and one new tail part. Use the manifest order, URLs, byte counts and SHA-256.

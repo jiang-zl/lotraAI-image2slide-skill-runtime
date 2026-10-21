@@ -2,7 +2,7 @@
 
 | Resource | Version / scope |
 | --- | --- |
-| Product and main skill | lotraAI Image2Slide 1.35.5 |
+| Product and main skill | lotraAI Image2Slide 1.36.0 |
 | Offline companion | 1.14.0; pinned dependencies and OCR resources |
 | Python | 3.12.15; Windows AMD64, Linux x86-64/aarch64, macOS x86-64/arm64 |
 | Math | Windows/Linux x86-64 bundled; macOS 13+ pinned official DMG download |
@@ -11,7 +11,7 @@
 
 The complete ZIP is transported as 19 ordered pieces, each at most 128 MiB.
 Its skill, Python engines, dependency wheels, OCR models and Windows/Linux Math
-resources are included. macOS Math is obtained separately on first installation.
+resources are included. macOS Math is obtained separately when LibreOffice fallback is needed. Qualified local Office can satisfy Math/render/save without that download.
 Linux ARM64 has core resources but lacks the complete Math package; installation
 stops before registering a complete skill on an unsupported complete route.
 
