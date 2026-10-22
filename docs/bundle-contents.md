@@ -2,7 +2,7 @@
 
 | Resource | Version / scope |
 | --- | --- |
-| Product and main skill | lotraAI Image2Slide 1.37.3 |
+| Product and main skill | lotraAI Image2Slide 1.37.4 |
 | Offline companion | 1.14.0; pinned dependencies and OCR resources |
 | Python | 3.12.15; Windows AMD64, Linux x86-64/aarch64, macOS x86-64/arm64 |
 | Math | Windows/Linux x86-64 bundled; macOS 13+ pinned official DMG download |

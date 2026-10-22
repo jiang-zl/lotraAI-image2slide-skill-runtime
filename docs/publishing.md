@@ -1,6 +1,6 @@
 # Publishing
 
-The current product publication is 1.37.3. Use [publication bindings](publication-checklist.md)
+The current product publication is 1.37.4. Use [publication bindings](publication-checklist.md)
 and releases/current.json for the current version and immutable content identities.
 Both repositories use dev and the numeric version branch; the product's formal
 vX.Y.Z tag and small installation assets are in the source repository.
