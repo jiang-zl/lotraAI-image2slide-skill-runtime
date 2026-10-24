@@ -2,28 +2,30 @@
 
 
 <!-- workflow-v137:start -->
-1.37.4 仍是可移植的 skill：通过项目内 `start → next → submit` 工作包、分批原图观察/绑定、
+1.37.5 仍是可移植的 skill：通过项目内 `start → next → submit` 工作包、分批原图观察/绑定、
 完整质量验收和正式导出重建 PPT。分批检查点不代表通过；原生构建稿不代表成品。
 交付前运行 `delivery-check` 验证当前任务和最终 PPTX 字节。无需更换 harness、
 常驻服务或额外模型密钥。可选检查脚本仅供接入方调用，skill 不控制第三方回复。
-1.37.4 保留文字颜色强调，统一完整原生字体槽位与源风格组选择，并补齐字体分步回执、恢复及线约束出口；保留 Windows 提交恢复和源授权保护。
+1.37.5 完成事故恢复、真实字体身份、源阶段诊断、短分支联合测量、逻辑文字与可编辑材质、首次渲染局部检查和明确拍屏目标映射；完整源证据、实际渲染和正式交付门禁继续必需。
 <!-- workflow-v137:end -->
 
 优先使用通过实际能力检查的本地 PowerPoint／WPS，LibreOffice 作为可选回退。最终文件执行真实导出与保存检查；保存目录可自选，默认项目目录。复用 runtime 1.14.0 二进制；WPS／macOS 必须由对应实机资格检查确认。
 
 
 
-**当前产品发布版本：1.37.4** · 开发／默认分支：`dev` · 版本分支：`1.37.4`
+**当前产品发布版本：1.37.5** · 开发／默认分支：`dev` · 版本分支：`1.37.5`
 
-两个分支当前均服务于产品 1.37.4。Runtime 二进制仍为 1.14.0，未变化的平台资源继续复用既有 `v1.34.0` 资源发布。产品正式标签为 [`v1.37.4`](https://github.com/jiang-zl/lotraAI-image2slide-skill/releases/tag/v1.37.4)。分支使用 `dev` 或 `X.Y.Z`，标签使用 `vX.Y.Z`，不增加其他后缀。
+发布使用 dev 与 1.37.5。Runtime 二进制仍为 1.14.0，未变化的平台资源继续复用既有 `v1.34.0` 资源发布。正式产品标签为 `v1.37.5`。分支使用 `dev` 或 `X.Y.Z`，标签使用 `vX.Y.Z`，不增加其他后缀。
+
+本发布具有当前 Windows/Linux 回归、安装与自建任务交付证据。官方 DeepSeek 原事故复跑已生成真实原生/渲染检查点并闭合本轮箭头诊断；用户要求此后发布，整图验收与导出未完成。具体范围与保留失败见发布与验证报告；实际公开 README 和完整包首次/重复下载结果在发布后单独记录。
 
 [English](README.md) · [简体中文](README.zh-CN.md)
 
 本仓库分发 lotraAI 完整 bundle 与平台运行资源，维护自动安装、差分更新和下载清单。产品介绍、案例和 skill 源码位于[主项目](https://github.com/jiang-zl/lotraAI-image2slide-skill/blob/dev/README.zh-CN.md)。
 
-## 当前完整包：1.37.4
+## 当前完整包：1.37.5
 
-完整文件为 `lotraAI-image2slide-v1.37.4-bundle.zip`，包含 skill 与当前随包运行资源。大小、SHA-256 和分块顺序以[完整包清单](https://github.com/jiang-zl/lotraAI-image2slide-skill/releases/download/v1.37.4/v1.37.4-bundle.json)为准。
+完整文件为 `lotraAI-image2slide-v1.37.5-bundle.zip`，包含 skill 与当前随包运行资源。大小、SHA-256 和分块顺序以[完整包清单](https://github.com/jiang-zl/lotraAI-image2slide-skill/releases/download/v1.37.5/v1.37.5-bundle.json)为准。
 
 运行资源覆盖 Windows x64、Linux x64、macOS Apple Silicon 和 Intel。macOS 要求 13 或更高版本，Math DMG 首次单独联网获取，未包含在完整 bundle 中；Linux ARM64 有核心资源，尚缺完整 Math 包。详见[安装说明](docs/installation.zh-CN.md)。
 
@@ -42,7 +44,7 @@ Codex 按当前平台调用维护好的安装入口，先准备项目内运行�
 如果已有完整 ZIP，提供文件或本地绝对路径，发送：
 
 ~~~text
-请用提供的 lotraAI-image2slide-v1.37.4-bundle.zip 在当前项目安装或更新 Image2Slide。
+请用提供的 lotraAI-image2slide-v1.37.5-bundle.zip 在当前项目安装或更新 Image2Slide。
 ~~~
 
 ### 2. 附上原图开始重建
@@ -88,7 +90,7 @@ skill 包内也提供 `scripts/install-runtime.ps1` 和 `scripts/install-runtime
 下载 lotraAI Image2Slide 的完整安装包到当前项目。
 ~~~
 
-[1.37.4 完整包 Release](https://github.com/jiang-zl/lotraAI-image2slide-skill/releases/tag/v1.37.4) 的 19 个分块（`.part001` 至 `.part019`，每块不超过 128 MiB）是同一个 ZIP 按顺序切出的字节片段。程序按清单下载、逐块校验、合并并核对整包 SHA-256，完成后才生成正式 ZIP。中断后保留可续传的下载进度。
+[1.37.5 完整包 Release](https://github.com/jiang-zl/lotraAI-image2slide-skill/releases/tag/v1.37.5) 的 19 个分块（`.part001` 至 `.part019`，每块不超过 128 MiB）是同一个 ZIP 按顺序切出的字节片段。程序按清单下载、逐块校验、合并并核对整包 SHA-256，完成后才生成正式 ZIP。中断后保留可续传的下载进度。
 
 下载和安装共用程序与内容缓存。已有解压包也可直接通过包内安装器进入同一安装流程；具体命令见[完整包与本地安装](docs/installation.zh-CN.md#完整包与本地安装)。
 
@@ -98,7 +100,7 @@ skill 包内也提供 `scripts/install-runtime.ps1` 和 `scripts/install-runtime
 
 个人知识库、字体、任务、原图、PPT 和全局技能保留。用户自行改动过或归属不明的文件会保留并报告冲突，更新只清理有归属的受管理文件。
 
-[安装说明](docs/installation.zh-CN.md) · [1.37.4 安装清单](https://github.com/jiang-zl/lotraAI-image2slide-skill/releases/download/v1.37.4/release.json) · [来源与许可](NOTICE.md) · [版本与证据说明](docs/release-status.md)
+[安装说明](docs/installation.zh-CN.md) · [1.37.5 安装清单](https://github.com/jiang-zl/lotraAI-image2slide-skill/releases/download/v1.37.5/release.json) · [来源与许可](NOTICE.md) · [版本与证据说明](docs/release-status.md)
 
 ## 本地软件与保存目录
 
